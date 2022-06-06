@@ -1,5 +1,5 @@
 // ACTIONS
-const MSG = 'categories_under_construction';
+const MESSAGE = 'bookstore/categories/MESSAGE';
 
 // INITIAL STATE
 const initialState = [];
@@ -7,14 +7,14 @@ const initialState = [];
 // ACTION CREATORS
 export function updateAction() {
   return {
-    type: MSG,
+    type: MESSAGE,
   };
 }
 
 // REDUCER
 export default function categoriesReducer(state = initialState, action) {
   switch (action.type) {
-    case MSG:
+    case MESSAGE:
       return 'under construction';
     default:
       return state;

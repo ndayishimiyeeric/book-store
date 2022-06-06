@@ -1,6 +1,6 @@
 // ACTIONS
-const ADD = 'add_book';
-const REMOVE = 'remove-book';
+const ADD_BOOK = 'bookstore/books/ADD';
+const REMOVE_BOOK = 'bookstore/books/REMOVE';
 
 // INITIAL STATE
 const initialState = [];
@@ -8,14 +8,14 @@ const initialState = [];
 // ACTION CREATORS
 export function addAction(book) {
   return {
-    type: ADD,
+    type: ADD_BOOK,
     book,
   };
 }
 
 export function removeAction(id) {
   return {
-    type: REMOVE,
+    type: REMOVE_BOOK,
     id,
   };
 }
@@ -23,12 +23,12 @@ export function removeAction(id) {
 // REDUCER
 export default function bookReducer(state = initialState, action) {
   switch (action.type) {
-    case ADD:
+    case ADD_BOOK:
       return [
         ...state,
         action.book,
       ];
-    case REMOVE:
+    case REMOVE_BOOK:
       return state.filter((item) => item.id !== action.id);
     default:
       return state;

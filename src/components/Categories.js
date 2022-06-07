@@ -1,9 +1,18 @@
 import React from 'react';
-import Button from './Button';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateAction } from '../redux/categories/categories';
 
 function Categories() {
+  const categories = useSelector((state) => state.categoriesReducer);
+  const dispatch = useDispatch();
+  const handleStatus = () => {
+    dispatch(updateAction());
+  };
   return (
-    <Button name="Check status" />
+    <>
+      <button type="button" onClick={handleStatus}> Check Status </button>
+      <h1>{ categories }</h1>
+    </>
   );
 }
 

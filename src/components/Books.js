@@ -4,7 +4,7 @@ import Book from './Book';
 import Form from './Form';
 
 function Books() {
-  const books = useSelector((state) => state.bookReducer);
+  const { books } = useSelector((state) => state.book);
   const booksElement = books.map((book) => (
     <Book
       key={book.id}
@@ -14,10 +14,18 @@ function Books() {
     />
   ));
 
+  if (books.length === 0) {
+    return (
+      <div>
+        <h4>No Books Available</h4>
+        <Form />
+      </div>
+    );
+  }
+
   return (
     <div>
-      {books.length !== 0 && booksElement}
-      {books.length === 0 && 'No Books Available'}
+      {booksElement}
       <Form />
     </div>
   );

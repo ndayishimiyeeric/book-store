@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeAction } from '../redux/books/books';
+import { removeBook } from '../redux/books/books';
 import Button from './Button';
 import styles from './style/book.module.css';
 
@@ -10,8 +10,8 @@ function Book(props) {
 
   const dispatch = useDispatch();
 
-  const handleClick = (id) => {
-    dispatch(removeAction(id));
+  const handleClick = ({ id }) => {
+    dispatch(removeBook({ id }));
   };
   return (
     <div className={styles.book}>

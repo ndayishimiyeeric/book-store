@@ -7,7 +7,7 @@ function Button(props) {
     <button
       id={id}
       type="button"
-      onClick={() => handleClick(id)}
+      onClick={() => handleClick({ id })}
     >
       {name}
     </button>

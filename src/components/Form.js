@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addAction } from '../redux/books/books';
+import { addBook } from '../redux/books/books';
 
 function Form() {
   const [formData, setFormData] = React.useState({
@@ -23,7 +23,7 @@ function Form() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (formData.title.trim() && formData.author.trim()) {
-      dispatch(addAction(formData));
+      dispatch(addBook(formData));
     }
 
     setFormData({

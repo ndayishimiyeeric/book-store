@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/8zgJXl3G9vojkee6XZ5H/books';
@@ -56,20 +55,26 @@ const bookSlice = createSlice({
   reducers: {},
   extraReducers: {
     [getBooks.pending]: (state) => {
-      state.isLoading = true;
+      const newState = state;
+      newState.isLoading = true;
     },
     [getBooks.fulfilled]: (state, action) => {
-      state.isLoading = false;
-      state.books = action.payload[0]; //eslint-disable-line
+      const newState = state;
+      newState.isLoading = false;
+      const newStore = action.payload[0];
+      newState.books = newStore;
     },
     [getBooks.rejected]: (state) => {
-      state.isLoading = false;
+      const newState = state;
+      newState.isLoading = false;
     },
     [addBook.fulfilled]: (state, action) => {
-      state.books = action.payload;
+      const newState = state;
+      newState.books = action.payload;
     },
     [removeBook.fulfilled]: (state, action) => {
-      state.books = action.payload;
+      const newState = state;
+      newState.books = action.payload;
     },
   },
 });

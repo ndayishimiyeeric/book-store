@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Book from './Book';
 import Form from './Form';
+import styles from './style/Books.module.css';
 
 function Books() {
   const { books, isLoading } = useSelector((state) => state.book);
@@ -33,8 +34,9 @@ function Books() {
   }
 
   return (
-    <div>
+    <div className={styles.books}>
       {booksElement}
+      <hr />
       <Form />
     </div>
   );

@@ -1,17 +1,17 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateAction } from '../redux/categories/categories';
+import { displayMessage } from '../redux/categories/categories';
 
 function Categories() {
-  const categories = useSelector((state) => state.categoriesReducer);
+  const { status } = useSelector((state) => state.category);
   const dispatch = useDispatch();
   const handleStatus = () => {
-    dispatch(updateAction());
+    dispatch(displayMessage());
   };
   return (
     <>
       <button type="button" onClick={handleStatus}> Check Status </button>
-      <h1>{ categories }</h1>
+      <h1>{ status }</h1>
     </>
   );
 }

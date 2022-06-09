@@ -1,52 +1,82 @@
-// ACTIONS
-const ADD_BOOK = 'bookstore/books/ADD';
-const REMOVE_BOOK = 'bookstore/books/REMOVE';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
+const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/8zgJXl3G9vojkee6XZ5H/books';
 
 // INITIAL STATE
-export const initialState = [
-  {
-    id: 1,
-    title: 'Lean Redux',
-    author: 'Microverse',
-  },
-  {
-    id: 2,
-    title: 'Lean Advanced Redux',
-    author: 'FreeCodeCamp',
-  },
-  {
-    id: 3,
-    title: 'Learn ReduxToolkit',
-    author: 'Code Cademy',
-  },
-];
+const initialState = {
+  books: [],
+  isLoading: false,
+};
 
-// ACTION CREATORS
-export function addAction(book) {
-  return {
-    type: ADD_BOOK,
-    book,
-  };
-}
+export const getBooks = createAsyncThunk('books/getbooks', async () => {
+  const response = await fetch(url);
+  const data = await response.json();
+  const books = [Object.keys(data).map((key) => (
+    {
+      id: key,
+      ...data[key][0],
+    }
+  ))];
+  return books;
+});
 
-export function removeAction(id) {
-  return {
-    type: REMOVE_BOOK,
-    payload: id,
-  };
-}
+export const addBook = createAsyncThunk(
+  'books/addBook', async (payload, thunkAPI) => {
+    await fetch(`${url}`, {
+      method: 'POST',
+      body: JSON.stringify({
+        item_id: payload.id,
+        title: payload.title,
+        author: payload.author,
+        category: payload.category,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then(() => thunkAPI.dispatch(getBooks()));
+    const { books } = thunkAPI.getState().books;
+    return books;
+  },
+);
 
-// REDUCER
-export default function bookReducer(state = initialState, action) {
-  switch (action.type) {
-    case ADD_BOOK:
-      return [
-        ...state,
-        action.book,
-      ];
-    case REMOVE_BOOK:
-      return [...state.filter((item) => (item.id !== action.payload))];
-    default:
-      return state;
-  }
-}
+export const removeBook = createAsyncThunk(
+  'books/removeBook', async (payload, thunkAPI) => {
+    await fetch(`${url}/${payload.id}`, {
+      method: 'DELETE',
+    }).then(() => thunkAPI.dispatch(getBooks()));
+    const { books } = thunkAPI.getState().books;
+    return books;
+  },
+);
+
+const bookSlice = createSlice({
+  name: 'book',
+  initialState,
+  reducers: {},
+  extraReducers: {
+    [getBooks.pending]: (state) => {
+      const newState = state;
+      newState.isLoading = true;
+    },
+    [getBooks.fulfilled]: (state, action) => {
+      const newState = state;
+      newState.isLoading = false;
+      const newStore = action.payload[0];
+      newState.books = newStore;
+    },
+    [getBooks.rejected]: (state) => {
+      const newState = state;
+      newState.isLoading = false;
+    },
+    [addBook.fulfilled]: (state, action) => {
+      const newState = state;
+      newState.books = action.payload;
+    },
+    [removeBook.fulfilled]: (state, action) => {
+      const newState = state;
+      newState.books = action.payload;
+    },
+  },
+});
+
+export default bookSlice.reducer;

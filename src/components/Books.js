@@ -4,20 +4,37 @@ import Book from './Book';
 import Form from './Form';
 
 function Books() {
-  const books = useSelector((state) => state.bookReducer);
+  const { books, isLoading } = useSelector((state) => state.book);
   const booksElement = books.map((book) => (
     <Book
       key={book.id}
       id={book.id}
       title={book.title}
       author={book.author}
+      category={book.category}
     />
   ));
 
+  if (isLoading) {
+    return (
+      <div>
+        <h4>Loading....</h4>
+      </div>
+    );
+  }
+
+  if (books.length === 0) {
+    return (
+      <div>
+        <h4>No Book Available</h4>
+        <Form />
+      </div>
+    );
+  }
+
   return (
     <div>
-      {books.length !== 0 && booksElement}
-      {books.length === 0 && 'No Books Available'}
+      {booksElement}
       <Form />
     </div>
   );

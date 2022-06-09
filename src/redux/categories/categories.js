@@ -1,22 +1,21 @@
-// ACTIONS
-const MESSAGE = 'bookstore/categories/MESSAGE';
+import { createSlice } from '@reduxjs/toolkit';
 
 // INITIAL STATE
-const initialState = [];
+const initialState = {
+  status: [],
+};
 
-// ACTION CREATORS
-export function updateAction() {
-  return {
-    type: MESSAGE,
-  };
-}
+const categorySlice = createSlice({
+  name: 'category',
+  initialState,
+  reducers: {
+    displayMessage: (state) => {
+      const newState = state;
+      newState.status = 'Under constructions';
+    },
+  },
+});
 
-// REDUCER
-export default function categoriesReducer(state = initialState, action) {
-  switch (action.type) {
-    case MESSAGE:
-      return 'under construction';
-    default:
-      return state;
-  }
-}
+export const { displayMessage } = categorySlice.actions;
+
+export default categorySlice.reducer;

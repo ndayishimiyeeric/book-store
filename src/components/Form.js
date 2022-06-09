@@ -1,12 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addAction } from '../redux/books/books';
+import { addBook } from '../redux/books/books';
 
 function Form() {
   const [formData, setFormData] = React.useState({
     id: Math.floor(Math.random() * 1000),
     title: '',
     author: '',
+    category: '',
   });
 
   const handleChange = (event) => {
@@ -23,7 +24,7 @@ function Form() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (formData.title.trim() && formData.author.trim()) {
-      dispatch(addAction(formData));
+      dispatch(addBook(formData));
     }
 
     setFormData({
@@ -50,6 +51,24 @@ function Form() {
         onChange={handleChange}
         placeholder="Author"
       />
+      <select
+        name="category"
+        id="category"
+        onChange={handleChange}
+      >
+        <option value="">Categories</option>
+        <option value="Action">Action</option>
+        <option value="Adventure">Adventure</option>
+        <option value="Comic">Comic</option>
+        <option value="Classic">Classic</option>
+        <option value="Detective">Detective</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Historical">Historical</option>
+        <option value="Horror">Horror</option>
+        <option value="Novel">Novel</option>
+        <option value="Scientific">Scientific</option>
+        <option value="Technology">Technology</option>
+      </select>
       <button type="submit">Submit</button>
     </form>
   );

@@ -10,7 +10,8 @@ const categorySlice = createSlice({
   initialState,
   reducers: {
     displayMessage: (state) => {
-      state.status = 'Under constructions'; //eslint-disable-line
+      const newState = state;
+      newState.status = 'Under constructions';
     },
   },
 });

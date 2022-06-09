@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { BsEmojiSmileUpsideDown } from 'react-icons/bs';
 import Book from './Book';
 import Form from './Form';
 import styles from './style/Books.module.css';
@@ -18,16 +19,24 @@ function Books() {
 
   if (isLoading) {
     return (
-      <div>
-        <h4>Loading....</h4>
+      <div className={styles.books}>
+        <h4 className={styles.loading}>Loading....</h4>
+        <hr className={styles.hr} />
+        <Form />
       </div>
     );
   }
 
   if (books.length === 0) {
     return (
-      <div>
-        <h4>No Book Available</h4>
+      <div className={styles.books}>
+        <h4
+          className={styles.loading}
+        >
+          No Book Available
+          <BsEmojiSmileUpsideDown />
+        </h4>
+        <hr className={styles.hr} />
         <Form />
       </div>
     );
@@ -36,7 +45,7 @@ function Books() {
   return (
     <div className={styles.books}>
       {booksElement}
-      <hr />
+      <hr className={styles.hr} />
       <Form />
     </div>
   );

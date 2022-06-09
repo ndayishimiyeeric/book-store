@@ -20,7 +20,7 @@
 .detailsCategory {
   height: 1.125rem;
   opacity: 0.5;
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-size: 0.875rem;
   font-weight: bold;
   font-stretch: normal;
@@ -70,6 +70,12 @@
   letter-spacing: 0.5px;
   text-align: center;
   color: #fff;
+  transition: transform 0.2s ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(0.9);
 }
 
 .btn {
@@ -123,25 +129,27 @@
   fill: none;
   stroke-width: 5;
   stroke: #000;
-  transform: translate(5px,5px);
+  transform: translate(5px, 5px);
   stroke-dasharray: 440;
   stroke-dashoffset: 440;
   stroke-linecap: round;
 }
 
-.progressCircle svg circle:nth-child(1){
+.progressCircle svg circle:nth-child(1) {
   stroke-dashoffset: 100;
   stroke: #f3f3f3;
 }
 
-.progressCircle svg circle:nth-child(2){
+.progressCircle svg circle:nth-child(2) {
   stroke-dashoffset: calc(440 - (440 * 35) / 100);
   stroke: #307bbe;
 }
 
 .progressNumber {
   height: 2.438rem;
-  font-family: Montserrat;
+  font-family:
+    'Montserrat',
+    sans-serif;
   font-size: 2rem;
   font-weight: normal;
   font-stretch: normal;
@@ -154,7 +162,9 @@
 .progressCompleted {
   height: 1.125rem;
   opacity: 0.5;
-  font-family: Montserrat;
+  font-family:
+    'Montserrat',
+    sans-serif;
   font-size: 0.875rem;
   font-weight: normal;
   font-stretch: normal;
@@ -166,7 +176,7 @@
 
 .lgline {
   width: 0.125rem;
-  height: 4.375rem;;
+  height: 4.375rem;
   border-left: 1px solid #e8e8e8;
   margin-right: 3rem;
   margin-left: 3rem;

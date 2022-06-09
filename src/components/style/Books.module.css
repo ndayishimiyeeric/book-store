@@ -1,0 +1,25 @@
+.books {
+  margin-right: 6.25rem;
+  margin-left: 6.25rem;
+}
+
+.hr {
+  margin-top: 2.5rem;
+  background-color: #e8e8e8;
+}
+
+.loading {
+  text-align: center;
+  height: 1.125rem;
+  opacity: 0.5;
+  font-family:
+    'Montserrat',
+    sans-serif;
+  font-size: 0.875rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #121212;
+}

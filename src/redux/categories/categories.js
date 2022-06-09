@@ -11,7 +11,7 @@ const categorySlice = createSlice({
   reducers: {
     displayMessage: (state) => {
       const newState = state;
-      newState.status = 'Under constructions';
+      newState.status = 'Under construction';
     },
   },
 });

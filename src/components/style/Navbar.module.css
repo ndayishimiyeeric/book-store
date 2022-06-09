@@ -23,7 +23,9 @@ ul {
 .link {
   height: 1rem;
   opacity: 0.5;
-  font-family: Montserrat;
+  font-family:
+    'Montserrat',
+    sans-serif;
   font-size: 0.813rem;
   font-weight: 400;
   font-stretch: normal;
@@ -54,7 +56,9 @@ ul {
 .logo {
   height: 2.313rem;
   margin: 0.375rem 2.938rem 0.125rem 0;
-  font-family: Montserrat;
+  font-family:
+    'Montserrat',
+    sans-serif;
   font-size: 1.875rem;
   font-weight: bold;
   font-stretch: normal;

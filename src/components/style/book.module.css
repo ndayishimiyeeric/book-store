@@ -210,3 +210,11 @@ button:hover {
   color: var(--main-black);
   margin-bottom: 1.5rem;
 }
+
+.top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+}

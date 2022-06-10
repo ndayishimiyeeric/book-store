@@ -23,16 +23,14 @@ ul {
 .link {
   height: 1rem;
   opacity: 0.5;
-  font-family:
-    'Montserrat',
-    sans-serif;
+  font-family: var(--primary-font);
   font-size: 0.813rem;
   font-weight: 400;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: 1.9px;
-  color: #121212;
+  color: var(--main-black);
   text-decoration: none;
 }
 
@@ -56,9 +54,7 @@ ul {
 .logo {
   height: 2.313rem;
   margin: 0.375rem 2.938rem 0.125rem 0;
-  font-family:
-    'Montserrat',
-    sans-serif;
+  font-family: var(--primary-font);
   font-size: 1.875rem;
   font-weight: bold;
   font-stretch: normal;

@@ -12,9 +12,7 @@
   text-align: center;
   height: 1.125rem;
   opacity: 0.5;
-  font-family:
-    'Montserrat',
-    sans-serif;
+  font-family: var(--primary-font);
   font-size: 0.875rem;
   font-weight: normal;
   font-stretch: normal;

@@ -5,7 +5,6 @@ import styles from './style/Form.module.css';
 
 function Form() {
   const [formData, setFormData] = React.useState({
-    id: Math.floor(Math.random() * 1000),
     title: '',
     author: '',
     category: '',
@@ -28,11 +27,11 @@ function Form() {
       dispatch(addBook(formData));
     }
 
-    setFormData({
-      id: '',
+    setFormData((prevState) => ({
+      ...prevState,
       title: '',
       author: '',
-    });
+    }));
   };
 
   return (

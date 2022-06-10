@@ -25,7 +25,7 @@ export const addBook = createAsyncThunk(
     await fetch(`${url}`, {
       method: 'POST',
       body: JSON.stringify({
-        item_id: payload.id,
+        item_id: Math.floor(Math.random() * 1000),
         title: payload.title,
         author: payload.author,
         category: payload.category,

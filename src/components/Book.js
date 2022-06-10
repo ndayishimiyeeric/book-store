@@ -8,6 +8,7 @@ import styles from './style/book.module.css';
 
 function Book(props) {
   const [show, setShow] = React.useState(false);
+  const [success, setSuccess] = React.useState(false);
   const {
     title, author, id, category,
   } = props;
@@ -16,7 +17,18 @@ function Book(props) {
 
   const handleClick = ({ id }) => {
     dispatch(removeBook({ id }));
+    setSuccess(true);
   };
+
+  const alertSuccess = (
+    <div className={styles.bottom}>
+      <Alert
+        severity="success"
+      >
+        Book Deleted successfull!
+      </Alert>
+    </div>
+  );
 
   const handleShow = () => {
     setShow(true);
@@ -39,7 +51,8 @@ function Book(props) {
 
   return (
     <>
-      { show && alert }
+      {show && alert}
+      {success && alertSuccess}
       <div className={styles.book}>
         <div className={styles.details}>
           <p className={styles.detailsCategory}>{ category }</p>

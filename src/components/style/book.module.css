@@ -218,3 +218,10 @@ button:hover {
   right: 0;
   width: auto;
 }
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  left: 6.25rem;
+  width: auto;
+}

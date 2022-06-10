@@ -3,7 +3,7 @@
 .form {
   margin-top: 1.813rem;
   padding-bottom: 16rem;
-  display: flex;
+  display: var(--flex);
   flex-direction: column;
   gap: 1.188rem;
 }
@@ -21,7 +21,7 @@
 }
 
 .formElements {
-  display: flex;
+  display: var(--flex);
   align-items: center;
   gap: 2rem;
 }

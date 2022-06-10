@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 .book {
-  display: flex;
+  display: var(--flex);
   gap: 20px;
   border: 1px solid #e8e8e8;
   border-radius: 5px;
@@ -11,7 +11,7 @@
 }
 
 .details {
-  display: flex;
+  display: var(--flex);
   flex-direction: column;
   align-items: flex-start;
   margin-right: 7rem;
@@ -107,7 +107,7 @@ button:hover {
 }
 
 .progress {
-  display: flex;
+  display: var(--flex);
   align-items: center;
   gap: 0.8rem;
 }
@@ -179,7 +179,7 @@ button:hover {
 }
 
 .chapters {
-  display: flex;
+  display: var(--flex);
   flex-direction: column;
   align-items: flex-start;
 }

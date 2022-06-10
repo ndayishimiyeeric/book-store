@@ -19,5 +19,5 @@
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: #121212;
+  color: var(--main-black);
 }

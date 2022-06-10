@@ -4,6 +4,7 @@
   --primary-font: 'Montserrat', sans-serif;
   --secondary-font: 'Roboto Slab', serif;
   --main-black: #121212;
+  --flex: flex;
 }
 
 * {

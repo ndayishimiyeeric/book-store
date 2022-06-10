@@ -4,7 +4,7 @@ ul {
 
 .header {
   border-bottom: 0.125rem solid #e8e8e8;
-  display: flex;
+  display: var(--flex);
   align-items: center;
   height: 2.938rem;
   margin: 0 0 2.375rem;
@@ -15,7 +15,7 @@ ul {
 }
 
 .links {
-  display: flex;
+  display: var(--flex);
   gap: 20px;
   margin-right: auto;
 }
@@ -38,7 +38,7 @@ ul {
   border: 1px solid #e8e8e8;
   width: 2.813rem;
   height: 2.813rem;
-  display: flex;
+  display: var(--flex);
   justify-content: center;
   align-items: center;
   border-radius: 50%;

@@ -34,8 +34,10 @@ function Form() {
         author: '',
       }));
       setSuccess(true);
+      setShow(false);
     } else {
       setShow(true);
+      setSuccess(false);
     }
   };
 

@@ -8,7 +8,7 @@ This is a Book store app
 
 ## Demo App
 
-See Demo [Live](https://nderic-book-store.netlify.app/)
+[Demo](https://nderic-book-store.netlify.app/)
 
 ## Built With
 
